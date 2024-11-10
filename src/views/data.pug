@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    form(action="/sqlInjection/data" method="POST")
+      div
+        label(for="vulnerable")
+          input(type="checkbox" id="vulnerable" name="vulnerable" checked)
+          |  Vulnerability active
+
+      h1 Check user data
+
+      div
+        label(for="username") Username:
+        input(type="text" id="username" name="username")
+      div
+        button(type="submit") Show data
+      div
+        if error 
+          p #{error}
+
+    if data
+      h2 User data:
+      p #{data}

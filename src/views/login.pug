@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  .container
+    div.split
+        form.half(action="/brokenAuth/verticalAttack" method="POST")
+            h2 Vertical attack
+            div
+                label(for="vulnerable1")
+                    input(type="checkbox" id="vulnerable1" name="vulnerable" checked)
+                    |  Vulnerability active
+            div
+                input(type="text" id="username" name="username" placeholder="Username for attack")
+            div
+                button(type="submit") Attack
+
+        form.half(action="/brokenAuth/horizontalAttack" method="POST")
+            h2 Horizontal attack
+            div
+                label(for="vulnerable2")
+                    input(type="checkbox" id="vulnerable2" name="vulnerable" checked)
+                    |  Vulnerability active
+            div
+                input(type="text" id="password" name="password" placeholder="Password for attack")
+            div
+                button(type="submit") Attack
+
+    form(action="/brokenAuth/login" method="POST")
+      h1 Login
+
+      div
+        label(for="username") Username:
+        input(type="text" id="username" name="username")
+      div
+        label(for="password") Password:
+        input(type="text" id="password" name="password")
+      div
+        button(type="submit") Login
+      div
+        if error 
+          p #{error}
+
+    if successful
+      h2 Login successful
+    else if unsuccessful
+      h2 Login failed
+
+    if passwords
+        div.split
+            div.half
+                p
+                  strong Passwords tried:
+                  each i in passwords
+                    p #{i}
+            div.half
+                if loginInfo
+                    p
+                      strong Login successful for:
+                    p Username: #{loginInfo.username}
+                    p Password: #{loginInfo.password}
+
+    if usernames
+        div.split
+            div.half
+                p
+                  strong Usernames tried:
+                  each i in usernames
+                    p #{i}
+            div.half
+                if loginInfo
+                  each [username, password] of loginInfo
+                    p
+                      strong Login successful for:
+                    p Username: #{username}
+                    p Password: #{password}
+
+            

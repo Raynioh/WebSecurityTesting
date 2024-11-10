@@ -1,0 +1,30 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "build": "npm run clean && npx tsc && npm run copy-views && npm run copy-db",
+    "clean": "shx rm -rf dist",
+    "copy-views": "shx cp -r src/views src/public dist",
+    "copy-db": "shx cp -r src/database dist",
+    "start": "node dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "fs": "^0.0.1-security",
+    "get-root-path": "^2.0.2",
+    "pg": "^8.13.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/pg": "^8.11.10",
+    "pug": "^3.0.3",
+    "shx": "^0.3.4",
+    "typescript": "^5.6.3"
+  }
+}

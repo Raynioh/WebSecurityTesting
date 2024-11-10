@@ -1,0 +1,46 @@
+extends layout
+
+block content
+    .container
+        button(onclick="toggleTableVisibility()") Show Table
+
+        div.hidden(id="tables")
+            h1 Users Table
+            table
+                thead
+                tr
+                    th Username
+                    th Password
+                    th Data
+                tbody
+                each user in users
+                    tr
+                    td= user.username
+                    td= user.password
+                    td= user.data
+
+            h1 UsersGoodPasswords Table
+            table
+                thead
+                tr
+                    th Username
+                    th Password
+                tbody
+                each user in goodUsers
+                    tr
+                    td= user.username
+                    td= user.password
+
+    script.
+      function toggleTableVisibility() {
+        var table = document.getElementById("tables");
+        var button = document.querySelector("button");
+        
+        table.classList.toggle("hidden");
+        
+        if (table.classList.contains("hidden")) {
+          button.innerText = "Show tables";
+        } else {
+          button.innerText = "Hide tables";
+        }
+      }
