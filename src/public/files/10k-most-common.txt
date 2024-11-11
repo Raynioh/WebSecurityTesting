@@ -5,7 +5,6 @@ password
 qwerty
 12345
 dragon
-pussy
 baseball
 football
 letmein
@@ -23,9 +22,7 @@ jordan
 superman
 harley
 1234567
-fuckme
 hunter
-fuckyou
 trustno1
 ranger
 buster
@@ -33,7 +30,6 @@ thomas
 tigger
 robert
 soccer
-fuck
 batman
 test
 pass

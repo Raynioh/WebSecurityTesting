@@ -2,7 +2,9 @@ extends layout
 
 block content
     .container
-        button(onclick="toggleTableVisibility()") Show Table
+        p.
+            Ovdje je prikaz podataka u bazi u slučaju da vam zatreba za testiranje.
+        button(onclick="toggleTableVisibility()") Show Tables
 
         div.hidden(id="tables")
             h1 Users Table

@@ -2,6 +2,17 @@ extends layout
 
 block content
   .container
+    p 
+      strong Upute:
+    p.
+      Za ovaj primjer implementirao sam simulaciju vertikalnog i horizontalnog napada. Kada se ranjivost isključi u oba napada se ograniči broj mogućih login pokušaja na 5,
+      te se korisnicima zamjene lozinke sa praktički "nepogodljivim" lozinkama za brute force napad. Simulacija napada koristi najčešće lozinke i korisnička imena dohvaćeno s interneta.
+    p.
+      Kao ulazne podatke za napade možete probati upisati neka korisnička imena ili šifre koje se često koriste, vjerojatno ćete pogoditi neko ime ili lozinku,
+      također možete pogledati podatke iz baze podataka u izborniku te se koristiti njima za primjere. Na dnu se ispišu rezultati napada.
+    p.
+      Također imate opciju normalnog login-a, te checkbox za login mijenja lozinke sa slabih na jake.
+
     div.split
         form.half(action="/brokenAuth/verticalAttack" method="POST")
             h2 Vertical attack
@@ -27,6 +38,10 @@ block content
 
     form(action="/brokenAuth/login" method="POST")
       h1 Login
+
+      label(for="vulnerable3")
+        input(type="checkbox" id="vulnerable3" name="vulnerable" checked)
+        |  Vulnerability active
 
       div
         label(for="username") Username:

@@ -96,8 +96,9 @@ router.post('/login', async (req, res) => {
     var username: string = req.body.username;
     var password: string = req.body.password;
 
-    var user: User | undefined = await loadUserSafe(username);
+    var user: User | undefined;
     if(vulnerability) {
+        user = await loadUserSafe(username);
         if(user) {
             if(user.password == password) {
                 res.render('login', {successful: true});
@@ -108,6 +109,7 @@ router.post('/login', async (req, res) => {
             res.render('login', {unsuccessful: true, error: "Wrong username"});
         }
     } else {
+        user = await loadUserGoodPasswords(username);
         if(user) {
             if(user.password == password) {
                 res.render('login', {successful: true});

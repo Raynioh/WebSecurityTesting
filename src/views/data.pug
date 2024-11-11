@@ -2,13 +2,20 @@ extends layout
 
 block content
   .container
+    p
+      strong Upute:
+    p.
+      Ovaj primjer ispisuje podatak koji korisnik ima spremljen u bazi podataka. SQL ubacivanjem možemo dobiti podatke nekih korisnika i bez da znamo username.
+      Možete probati običnu tautologiju kao 'a" OR 1=1--' ili 'a" OR 1=1 ORDER BY username DESC--' kako bi dobili ispis zadnjeg korisnika.
+      Kao baza koristi se SQLite koji ne podržava pokretanje više upita od jednom pa primjeri kao 'a"; DROP TABLE Users;--' ne vraćaju grešku, ali se također ne pokreću.
+
     form(action="/sqlInjection/data" method="POST")
+      h1 Check user data
+
       div
         label(for="vulnerable")
           input(type="checkbox" id="vulnerable" name="vulnerable" checked)
           |  Vulnerability active
-
-      h1 Check user data
 
       div
         label(for="username") Username:

@@ -39,7 +39,6 @@ export async function loadUserVulnerable(username: string) {
     driver: sqlite3.Database
   }).then(async (db) => {
     user = await db.get('SELECT * FROM Users WHERE username = \"' + username + '\"');
-    console.log(user);
   });
 
   return user;
