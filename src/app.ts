@@ -5,8 +5,6 @@ import brokenAuth from './routes/broken_auth';
 import sqlIncjection from './routes/sql_injection';
 import database from './routes/db_contents';
 
-
-
 const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'pug');
@@ -25,6 +23,6 @@ app.use(function (req, res, next) {
   next(err);
 });
 
-app.listen(3000, () => {
+app.listen(4000, '193.198.53.212', () => {
   console.log('Listening...');
 });
